@@ -42,7 +42,7 @@ export default function syncHistoryWithStore(history, store, {
     // If client side, use location hash since server doesn't
     // communicate hash part of url
     if (
-      window &&
+      'undefined' !== typeof window &&
       window.location &&
       window.location.hash &&
       locationState &&
