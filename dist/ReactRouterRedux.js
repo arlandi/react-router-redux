@@ -311,6 +311,13 @@ return /******/ (function(modules) { // webpackBootstrap
 	  // What does the store say about current location?
 	  var getLocationInStore = function getLocationInStore(useInitialIfEmpty) {
 	    var locationState = selectLocationState(store.getState());
+
+	    // If client side, use location hash since server doesn't
+	    // communicate hash part of url
+	    if (window && window.location && window.location.hash && locationState && locationState.locationBeforeTransitions) {
+	      locationState.locationBeforeTransitions.hash = window.location.hash;
+	    }
+
 	    return locationState.locationBeforeTransitions || (useInitialIfEmpty ? initialLocation : undefined);
 	  };
 
