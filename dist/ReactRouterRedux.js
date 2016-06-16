@@ -314,7 +314,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	    // If client side, use location hash since server doesn't
 	    // communicate hash part of url
-	    if (window && window.location && window.location.hash && locationState && locationState.locationBeforeTransitions) {
+	    if ('undefined' !== typeof window && window.location && window.location.hash && locationState && locationState.locationBeforeTransitions) {
 	      locationState.locationBeforeTransitions.hash = window.location.hash;
 	    }
 
